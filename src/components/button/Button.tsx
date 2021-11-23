@@ -42,7 +42,6 @@ export default function Button({
         },
         className
       )}
-      style={{}}
     >
       {dotted ? (
         <div
