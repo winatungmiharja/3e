@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { fontFamily } = require('tailwindcss/defaultTheme');
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -17,8 +16,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backgroundImage: {
+        1: "url('/images/bg-01.png')",
+        2: "url('/images/bg-02.png')",
+        3: "url('/images/bg-03.png')",
+      },
       fontFamily: {
-        primary: ['Inter', ...fontFamily.sans],
+        heading: 'Sora',
+        text: 'Poppins',
       },
       colors: {
         primary: {

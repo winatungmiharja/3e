@@ -1,61 +1,37 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from 'react';
 
-import Layout from '@/components/layout/Layout';
-import ButtonLink from '@/components/links/ButtonLink';
-import CustomLink from '@/components/links/CustomLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
+import Button from '@/components/button/Button';
+import LandingLayout from '@/components/layout/LandingLayout';
 import Seo from '@/components/Seo';
-
-// !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
-// Before you begin editing, follow all comments with `STARTERCONF`,
-// to customize the default configuration.
 
 export default function HomePage() {
   return (
-    <Layout>
-      {/* <Seo templateTitle='Home' /> */}
+    <LandingLayout>
       <Seo />
-
       <main>
-        <section className='bg-dark'>
-          <div className='flex flex-col items-center justify-center min-h-screen text-center text-white layout'>
-            <h1>Next.js + Tailwind CSS + TypeScript Starter</h1>
-            <p className='mt-2 text-sm text-gray-300'>
-              A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-              Import, Seo, Link component, pre-configured with Husky{' '}
-            </p>
-            <p className='mt-2 text-sm text-gray-200'>
-              <CustomLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-                See the repository
-              </CustomLink>
-            </p>
-
-            <ButtonLink className='mt-6' href='/components' variant='light'>
-              See all components
-            </ButtonLink>
-
-            <UnstyledLink
-              href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-              className='mt-4'
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+        <section className='bg-fixed bg-no-repeat bg-cover bg-1'>
+          <div className='grid h-full grid-cols-1 sm:grid-cols-2 min-h-main layout'>
+            <div className='flex flex-col items-start justify-center h-full'>
+              <div className='p-4 sm:p-0'>
+                <h1 className='text-5xl md:text-7xl'>3E</h1>
+                <h1 className='text-3xl md:text-4xl'>
+                  English Equality <br />
+                  for Everyone❤
+                </h1>
+                <Button className='mt-4 text-xl md:text-2xl'>Learn more</Button>
+              </div>
+            </div>
+            <div className='flex items-end justify-center h-full'>
               <img
-                width='92'
-                height='32'
-                src='https://vercel.com/button'
-                alt='Deploy with Vercel'
+                src='/images/person-01.svg'
+                alt=''
+                className='w-full max-w-sm sm:max-w-none'
               />
-            </UnstyledLink>
-
-            <footer className='absolute text-gray-500 bottom-2'>
-              © {new Date().getFullYear()} By{' '}
-              <CustomLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
-              </CustomLink>
-            </footer>
+            </div>
           </div>
         </section>
       </main>
-    </Layout>
+    </LandingLayout>
   );
 }

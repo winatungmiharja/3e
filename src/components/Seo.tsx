@@ -5,12 +5,12 @@ import { openGraph } from '@/lib/helper';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
+  title: '3E English Equality for Everyone',
+  siteName: '3E English Equality for Everyone',
   description:
-    'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
-  url: 'https://tsnext-tw.thcl.dev',
-  image: 'https://theodorusclarence.com/favicon/large-og.jpg',
+    'memanfaatkan sebaran data nilai TEFL mahasiswa ITS untuk meningkatkan kemampuan bahasa inggris di masa yang akan datang',
+  url: 'https://3e.vercel.app',
+  image: 'https://3e.vercel.app/favicon/logo3e.png',
   type: 'website',
   robots: 'follow, index',
 };
@@ -53,7 +53,6 @@ export default function Seo(props: SeoProps) {
       <meta name='image' property='og:image' content={meta.image} />
       {/* Twitter */}
       <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@th_clarence' />
       <meta name='twitter:title' content={meta.title} />
       <meta name='twitter:description' content={meta.description} />
       <meta name='twitter:image' content={meta.image} />
@@ -65,11 +64,7 @@ export default function Seo(props: SeoProps) {
             property='og:publish_date'
             content={meta.date}
           />
-          <meta
-            name='author'
-            property='article:author'
-            content='Theodorus Clarence'
-          />
+          <meta name='author' property='article:author' content='Kelompok 3' />
         </>
       )}
 
@@ -83,6 +78,48 @@ export default function Seo(props: SeoProps) {
         content='/favicon/ms-icon-144x144.png'
       />
       <meta name='theme-color' content='#ffffff' />
+      <link
+        rel='preload'
+        href='/fonts/Poppins/Poppins-Light.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Poppins/Poppins-Regular.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Poppins/Poppins-Medium.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Poppins/Poppins-SemiBold.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Poppins/Poppins-Bold.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Sora/Sora-Medium.ttf'
+        as='font'
+        crossOrigin=''
+      />
+      <link
+        rel='preload'
+        href='/fonts/Sora/Sora-SemiBold.ttf'
+        as='font'
+        crossOrigin=''
+      />
     </Head>
   );
 }
@@ -94,7 +131,6 @@ type Favicons = {
   type?: string;
 };
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://www.favicon-generator.org/
 // then replace the whole /public/favicon folder
 const favicons: Array<Favicons> = [
   {
