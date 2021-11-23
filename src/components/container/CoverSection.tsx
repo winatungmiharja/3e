@@ -8,7 +8,7 @@ export default function CoverSection() {
     document.getElementById('enroll')?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    <section className='bg-fixed bg-no-repeat bg-cover bg-1'>
+    <section className='bg-fixed bg-center bg-no-repeat bg-cover bg-1'>
       <div className='grid h-full grid-cols-1 sm:grid-cols-2 min-h-main layout'>
         <div className='flex flex-col items-start justify-center h-full'>
           <div className='p-4 sm:p-0'>
@@ -28,8 +28,8 @@ export default function CoverSection() {
         </div>
         <div className='flex items-end justify-center h-full'>
           <img
-            src='/images/person-01.svg'
-            alt=''
+            src='/images/person_01.svg'
+            alt='person learning languages'
             className='w-full max-w-sm sm:max-w-none'
           />
         </div>

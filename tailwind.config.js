@@ -17,9 +17,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        1: "url('/images/bg-01.png')",
-        2: "url('/images/bg-02.png')",
-        3: "url('/images/bg-03.png')",
+        1: "url('/images/bg_01.png')",
+        2: "url('/images/bg_02.png')",
+        3: "url('/images/bg_03.png')",
       },
       fontFamily: {
         heading: 'Sora',

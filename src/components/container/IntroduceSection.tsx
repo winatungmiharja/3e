@@ -8,9 +8,8 @@ export default function IntroduceSection() {
       <div className='grid h-full grid-cols-1 lg:grid-cols-2 min-h-main layout'>
         <div className='flex items-end justify-center h-full'>
           <img
-            loading='lazy'
-            src='/images/person-02.svg'
-            alt=''
+            src='/images/person_02.svg'
+            alt='kids learning'
             className='w-full max-w-sm sm:max-w-none'
           />
         </div>

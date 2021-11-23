@@ -27,6 +27,16 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding: 95px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      scroll-padding: 110px;
+    }
+  }
   @font-face {
     font-family: 'Poppins';
     src: url('/fonts/Poppins/Poppins-Light.ttf');
