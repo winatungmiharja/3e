@@ -10,6 +10,7 @@ export default function WhySection() {
           <div className='p-1 overflow-hidden bg-white shadow-lg rounded-2xl '>
             <div className='h-full px-4 py-5 border-2 border-dashed rounded-2xl border-primary-500 sm:p-4'>
               <img
+                loading='lazy'
                 src='/images/person-06.svg'
                 alt=''
                 className='mx-auto max-h-40'
@@ -26,6 +27,7 @@ export default function WhySection() {
           <div className='p-1 overflow-hidden bg-white shadow-lg rounded-2xl '>
             <div className='h-full px-4 py-5 border-2 border-dashed rounded-2xl border-primary-500 sm:p-4'>
               <img
+                loading='lazy'
                 src='/images/person-05.svg'
                 alt=''
                 className='mx-auto max-h-40'
@@ -41,6 +43,7 @@ export default function WhySection() {
           <div className='p-1 overflow-hidden bg-white shadow-lg rounded-2xl '>
             <div className='h-full px-4 py-5 border-2 border-dashed rounded-2xl border-primary-500 sm:p-4'>
               <img
+                loading='lazy'
                 src='/images/person-04.svg'
                 alt=''
                 className='mx-auto max-h-40'

@@ -25,12 +25,14 @@ export default function EnrollSection() {
         <div className='w-full max-w-3xl p-2 shadow-2xl bg-primary-100 rounded-3xl'>
           <div className='flex flex-col-reverse w-full max-w-3xl gap-4 border-2 border-dashed shadow-2xl sm:flex-row border-primary-500 bg-primary-100 rounded-3xl'>
             <img
+              loading='lazy'
               src='/images/person-03.svg'
               alt=''
               className='relative bottom-0 hidden max-w-xs pt-6 mt-auto -left-6 sm:w-full sm:block'
             />
             <div className='flex flex-col items-start justify-center p-6 sm:px-8 sm:py-16 sm:pl-0'>
               <img
+                loading='lazy'
                 src='/images/person-03.svg'
                 alt=''
                 className='block w-1/2 pb-4 mx-auto sm:hidden'
