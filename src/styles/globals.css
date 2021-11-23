@@ -29,7 +29,6 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding: 95px;
   }
 
   @media (min-width: 768px) {

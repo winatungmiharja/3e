@@ -71,86 +71,85 @@ export default function TopNavigation({
           <div className='block sm:hidden'>
             <div className='text-right'>
               <Menu as='div' className='relative inline-block text-left'>
-                <div>
-                  <Menu.Button className='inline-flex justify-center w-full '>
-                    {/* Options
-                    <HiChevronDown
-                      className='w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100'
-                      aria-hidden='true'
-                    /> */}
-                    <Button dotted={false}>
-                      <CgMenuRound size={25} />
-                    </Button>
-                  </Menu.Button>
-                </div>
-                <Transition
-                  as={Fragment}
-                  enter='transition ease-out duration-100'
-                  enterFrom='transform opacity-0 scale-95'
-                  enterTo='transform opacity-100 scale-100'
-                  leave='transition ease-in duration-75'
-                  leaveFrom='transform opacity-100 scale-100'
-                  leaveTo='transform opacity-0 scale-95'
-                >
-                  <Menu.Items className='absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md ring-black ring-opacity-5 focus:outline-none'>
-                    <div className='p-1 border-2 border-dashed shadow-lg rounded-xl border-primary-500'>
-                      {isLogin && (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={`${
-                                active
-                                  ? 'bg-primary-600 text-white'
-                                  : 'text-gray-900'
-                              } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
-                            >
-                              {active
-                                ? NavigationState.login.icon
-                                : NavigationState.login.icon}
-                              {NavigationState.login.title}
-                            </button>
-                          )}
-                        </Menu.Item>
-                      )}
-                      {isRegister && (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={`${
-                                active
-                                  ? 'bg-primary-600 text-white'
-                                  : 'text-gray-900'
-                              } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
-                            >
-                              {active
-                                ? NavigationState.register.icon
-                                : NavigationState.register.icon}
-                              {NavigationState.register.title}
-                            </button>
-                          )}
-                        </Menu.Item>
-                      )}
-                      {isLogout && (
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              className={`${
-                                active
-                                  ? 'bg-primary-600 text-white'
-                                  : 'text-gray-900'
-                              } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
-                            >
-                              {active
-                                ? NavigationState.logout.icon
-                                : NavigationState.logout.icon}
-                              {NavigationState.logout.title}
-                            </button>
-                          )}
-                        </Menu.Item>
-                      )}
-                    </div>
-                  </Menu.Items>
-                </Transition>
+                {({ open }) => (
+                  <>
+                    <Menu.Button as='div'>
+                      <Button dotted={false}>
+                        <CgMenuRound size={25} />
+                      </Button>
+                    </Menu.Button>
+                    {open && (
+                      <Transition
+                        as={Fragment}
+                        enter='transition ease-out duration-100'
+                        enterFrom='transform opacity-0 scale-95'
+                        enterTo='transform opacity-100 scale-100'
+                        leave='transition ease-in duration-75'
+                        leaveFrom='transform opacity-100 scale-100'
+                        leaveTo='transform opacity-0 scale-95'
+                      >
+                        <Menu.Items className='absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-xl ring-black ring-opacity-5 focus:outline-none'>
+                          <div className='p-1 border-2 border-dashed shadow-lg rounded-xl border-primary-500'>
+                            {isLogin && (
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    className={`${
+                                      active
+                                        ? 'bg-primary-600 text-white'
+                                        : 'text-gray-900'
+                                    } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
+                                  >
+                                    {active
+                                      ? NavigationState.login.icon
+                                      : NavigationState.login.icon}
+                                    {NavigationState.login.title}
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            )}
+                            {isRegister && (
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    className={`${
+                                      active
+                                        ? 'bg-primary-600 text-white'
+                                        : 'text-gray-900'
+                                    } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
+                                  >
+                                    {active
+                                      ? NavigationState.register.icon
+                                      : NavigationState.register.icon}
+                                    {NavigationState.register.title}
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            )}
+                            {isLogout && (
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    className={`${
+                                      active
+                                        ? 'bg-primary-600 text-white'
+                                        : 'text-gray-900'
+                                    } group flex gap-2 rounded-md items-center w-full px-2 py-2 text-sm`}
+                                  >
+                                    {active
+                                      ? NavigationState.logout.icon
+                                      : NavigationState.logout.icon}
+                                    {NavigationState.logout.title}
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            )}
+                          </div>
+                        </Menu.Items>
+                      </Transition>
+                    )}
+                  </>
+                )}
               </Menu>
             </div>
           </div>

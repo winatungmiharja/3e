@@ -21,8 +21,8 @@ const NavigationState = {
 export default function EnrollSection() {
   return (
     <section id='enroll'>
-      <div className='flex items-center justify-center p-4 py-16 bg-no-repeat bg-cover bg-2 sm:min-h-main'>
-        <div className='w-full max-w-3xl p-2 shadow-2xl bg-primary-100 rounded-3xl'>
+      <div className='flex items-center justify-center p-4 py-16 bg-fixed bg-center bg-no-repeat bg-cover bg-2 bg-origin-border sm:min-h-main'>
+        <div className='w-full max-w-3xl p-2 bg-primary-100 rounded-3xl'>
           <div className='flex flex-col-reverse w-full max-w-3xl gap-4 border-2 border-dashed shadow-2xl sm:flex-row border-primary-500 bg-primary-100 rounded-3xl'>
             <img
               src='/images/person_03.svg'

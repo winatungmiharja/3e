@@ -8,7 +8,7 @@ export default function CoverSection() {
     document.getElementById('enroll')?.scrollIntoView({ behavior: 'smooth' });
   };
   return (
-    <section className='bg-fixed bg-center bg-no-repeat bg-cover bg-1'>
+    <section className='bg-fixed bg-center bg-no-repeat bg-cover bg-1 bg-origin-border'>
       <div className='grid h-full grid-cols-1 sm:grid-cols-2 min-h-main layout'>
         <div className='flex flex-col items-start justify-center h-full'>
           <div className='p-4 sm:p-0'>
