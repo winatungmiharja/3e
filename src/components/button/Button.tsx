@@ -14,9 +14,9 @@ type ButtonProps = {
 
 export default function Button({
   children,
-  disabled,
-  isLoading,
-  className,
+  disabled = false,
+  isLoading = false,
+  className = '',
   variants = 'primary',
   dotted = true,
   icon,
@@ -39,6 +39,9 @@ export default function Button({
         {
           'relative !text-transparent hover:text-transparent !cursor-wait transition-none':
             isLoading,
+        },
+        {
+          'bg-gray-200 border-0  hover:bg-gray-200 text-gray-500': disabled,
         },
         className
       )}

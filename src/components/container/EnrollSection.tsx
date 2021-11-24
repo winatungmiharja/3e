@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import * as React from 'react';
 import { IoMdLogIn } from 'react-icons/io';
 
@@ -39,13 +40,17 @@ export default function EnrollSection() {
               <p>Tunggu apa lagi?</p>
               <p>daftar sekarang dan dapatkan pengecekan toefl gratis!</p>
 
-              <Button
-                variants='primary'
-                className='mt-6'
-                icon={NavigationState.login.icon}
-              >
-                Daftar
-              </Button>
+              <Link href='/register' passHref={true}>
+                <div>
+                  <Button
+                    variants='primary'
+                    className='mt-6'
+                    icon={NavigationState.login.icon}
+                  >
+                    Daftar
+                  </Button>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

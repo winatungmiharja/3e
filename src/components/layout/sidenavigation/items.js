@@ -1,22 +1,22 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import data from './data';
+import { adminData, userData } from './data';
 import { useToggle } from '../provider/context';
 
 const style = {
-  title: `mx-4 text-sm`,
-  active: `bg-gray-700 rounded-full`,
-  link: `flex items-center justify-start my-1 p-3 w-full hover:text-white`,
+  title: `mx-4 text-md`,
+  active: `bg-primary-500 rounded-full text-white`,
+  link: `flex items-center justify-start my-1 p-3 w-full hover:text-primary-500 z-20`,
   close: `lg:duration-700 lg:ease-out lg:invisible lg:opacity-0 lg:transition-all`,
-  open: `lg:duration-500 lg:ease-in lg:h-auto lg:opacity-100 lg:transition-all lg:w-auto`,
 };
 
-export default function SidenavItems() {
+export default function SidenavItems({ isAdmin }) {
   const { asPath } = useRouter();
   const { open } = useToggle();
+  const data = isAdmin ? adminData : userData;
   return (
-    <ul className='md:pl-3'>
+    <ul className='relative z-40 md:pl-3 bg-primary-100'>
       <li>
         {data.map((item) => (
           <Link href={item.link} key={item.title}>
@@ -26,9 +26,7 @@ export default function SidenavItems() {
               >
                 <span>{item.icon}</span>
               </div>
-              <span
-                className={`${style.title} ${open ? style.open : style.close}`}
-              >
+              <span className={`${style.title} ${open ? '' : style.close}`}>
                 {item.title}
               </span>
             </a>

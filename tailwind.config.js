@@ -15,6 +15,9 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    variants: {
+      outline: ['focus'],
+    },
     extend: {
       backgroundImage: {
         1: "url('/images/bg_01.png')",
