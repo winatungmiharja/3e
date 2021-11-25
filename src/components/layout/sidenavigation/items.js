@@ -8,7 +8,7 @@ const style = {
   title: `mx-4 text-md`,
   active: `bg-primary-500 rounded-full text-white`,
   link: `flex items-center justify-start my-1 p-3 w-full hover:text-primary-500 z-20`,
-  close: `lg:duration-700 lg:ease-out lg:invisible lg:opacity-0 lg:transition-all`,
+  close: `lg:duration-700 lg:ease-out lg:hidden lg:opacity-0 lg:transition-all`,
 };
 
 export default function SidenavItems({ isAdmin }) {

@@ -2,10 +2,14 @@
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
-export default function IndexPage() {
+import { deleteUserToken } from '../store/localSession';
+
+export default function LogOutPage() {
   const router = useRouter();
+
   React.useEffect(() => {
-    router.push('/user/home');
+    deleteUserToken();
+    router.push('/');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

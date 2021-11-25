@@ -10,3 +10,8 @@ export const validateName = (name: string): boolean => {
   const pattern = /[a-zA-Z][a-zA-Z ]{2,}$/g;
   return pattern.test(name);
 };
+
+export const validateTefl = (tefl: string) => {
+  const pattern = /^[1-9][0-9]*$/;
+  return pattern.test(tefl);
+};

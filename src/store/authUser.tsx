@@ -1,6 +1,6 @@
 import create from 'zustand';
 
-import { RegisterUserType, SessionUserType } from '@/lib/type';
+import { RegisterUserType, SessionUserType, TeflType } from '@/lib/type';
 
 export interface UserType {
   id: string;
@@ -8,7 +8,10 @@ export interface UserType {
   nama: string;
   departemen: string;
   hp: string;
+  toefl?: UserTeflType;
 }
+
+export type UserTeflType = TeflType & { avg_tefl: string };
 
 const makeRegister = (data: RegisterUserType, userId: string): UserType => {
   return {
@@ -34,6 +37,7 @@ type UserStore = {
   user: UserType;
   setRegisterUser(data: RegisterUserType, userId: string): void;
   setSessionUser(data: SessionUserType): void;
+  setAverageToefl(data: UserTeflType): void;
 };
 
 const useUserAuth = create<UserStore>((set) => ({
@@ -49,6 +53,9 @@ const useUserAuth = create<UserStore>((set) => ({
   },
   setSessionUser(data: SessionUserType) {
     set((state) => ({ ...state, user: makeSession(data) }));
+  },
+  setAverageToefl(data: UserTeflType) {
+    set((state) => ({ ...state, user: { ...state.user, toefl: data } }));
   },
 }));
 

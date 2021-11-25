@@ -10,8 +10,8 @@ const style = {
     right: 'right-0 lg:left-0',
   },
   close: `duration-500 ease-out hidden transition-all lg:w-24`,
-  open: `absolute duration-300 ease-in transition-all w-8/12 z-40 sm:w-5/12 md:w-64`,
-  default: `h-screen overflow-y-auto overflow-x-hidden text-white top-0 lg:absolute bg-primary-100 lg:block lg:z-40 pr-2`,
+  open: ` duration-300 ease-in transition-all w-8/12 z-40 sm:w-5/12 md:w-64`,
+  default: `h-screen overflow-y-auto overflow-x-hidden text-white top-0  bg-primary-100    lg:block lg:z-40 pr-2`,
 };
 
 export default function SideNavigation({ mobilePosition, isAdmin, isUser }) {

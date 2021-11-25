@@ -3,6 +3,7 @@
 import { Menu, Transition } from '@headlessui/react';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import * as React from 'react';
 import { CgMenuRound } from 'react-icons/cg';
@@ -43,6 +44,7 @@ export default function TopNavigation({
   isUser,
   ...rest
 }: TopNavigationProps) {
+  const router = useRouter();
   const toggleRef = useToggle();
   return (
     <header className='relative z-10 items-center h-20' {...rest}>
@@ -122,6 +124,7 @@ export default function TopNavigation({
                                 <Menu.Item>
                                   {({ active }) => (
                                     <button
+                                      onClick={() => router.push('/login')}
                                       className={`${
                                         active
                                           ? 'bg-primary-600 text-white'
@@ -140,6 +143,7 @@ export default function TopNavigation({
                                 <Menu.Item>
                                   {({ active }) => (
                                     <button
+                                      onClick={() => router.push('/register')}
                                       className={`${
                                         active
                                           ? 'bg-primary-600 text-white'

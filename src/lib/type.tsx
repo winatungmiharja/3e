@@ -25,3 +25,19 @@ export type SessionAdminType = {
   name_admin: string;
   id_admin: string;
 };
+
+export type LoginUserType = {
+  nrp: string;
+  password: string;
+};
+
+export type LoginAdminType = {
+  nip: string;
+  password: string;
+};
+
+export type TeflType = {
+  listening_tefl: string;
+  grammar_tefl: string;
+  reading_tefl: string;
+};

@@ -4,30 +4,25 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
-import { registerUser } from '@/lib/fetch';
-import { RegisterUserType } from '@/lib/type';
+import { loginUser } from '@/lib/fetch';
+import { LoginUserType } from '@/lib/type';
 import { validatePassword } from '@/lib/validation';
 
-import useUserAuth from '@/store/authUser';
 import { saveUserToken } from '@/store/localSession';
 
 import Button from '../button/Button';
 import Input from '../input/Input';
 import InputPassword from '../input/InputPassword';
 
-export default function RegisterUser() {
-  const store = useUserAuth();
+export default function LoginUser() {
   const router = useRouter();
   const [error, setError] = React.useState<null | string>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [user, setUser] = React.useState<RegisterUserType>({
+  const [user, setUser] = React.useState<LoginUserType>({
     nrp: '',
-    nama: '',
-    departemen: '',
-    hp: '',
     password: '',
   });
-  const updateAdmin = (params: keyof RegisterUserType, value: string) => {
+  const updateUser = (params: keyof LoginUserType, value: string) => {
     setUser((prevState) => ({ ...prevState, [params]: value }));
   };
 
@@ -39,10 +34,8 @@ export default function RegisterUser() {
     setError(null);
     setLoading(true);
     e.preventDefault();
-    const resData = await registerUser(user);
+    const resData = await loginUser(user);
     if (resData.isSuccess) {
-      const userId = resData.data.data.id_user;
-      store.setRegisterUser(user, userId);
       saveUserToken(resData.data.data.id_session_user);
       router.push('/user/home');
     } else {
@@ -70,13 +63,13 @@ export default function RegisterUser() {
                 type='number'
                 id={'register-nrp'}
                 label={'NRP'}
-                onChange={(e) => updateAdmin('nrp', e.target.value)}
+                onChange={(e) => updateUser('nrp', e.target.value)}
               />
               <InputPassword
                 type='password'
                 id={'password-pass'}
                 label={'Password'}
-                onChange={(e) => updateAdmin('password', e.target.value)}
+                onChange={(e) => updateUser('password', e.target.value)}
               />
               <Button
                 isLoading={loading}

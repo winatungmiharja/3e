@@ -4,11 +4,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
-import { registerAdmin } from '@/lib/fetch';
-import { RegisterAdminType } from '@/lib/type';
-import { validateName, validatePassword } from '@/lib/validation';
+import { loginAdmin } from '@/lib/fetch';
+import { LoginAdminType } from '@/lib/type';
+import { validatePassword } from '@/lib/validation';
 
-import useAdminAuth from '@/store/authAdmin';
 import { saveAdminToken } from '@/store/localSession';
 
 import Button from '../button/Button';
@@ -16,35 +15,27 @@ import Input from '../input/Input';
 import InputPassword from '../input/InputPassword';
 
 export default function LoginAdmin() {
-  const store = useAdminAuth();
   const router = useRouter();
   const [error, setError] = React.useState<null | string>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
-  const [user, setUser] = React.useState<RegisterAdminType>({
+  const [user, setUser] = React.useState<LoginAdminType>({
     nip: '',
-    nama: '',
     password: '',
   });
-  const updateUser = (params: keyof RegisterAdminType, value: string) => {
+  const updateUser = (params: keyof LoginAdminType, value: string) => {
     setUser((prevState) => ({ ...prevState, [params]: value }));
   };
 
   function validateAll(): boolean {
-    return !!(
-      validatePassword(user.password) &&
-      validateName(user.nama) &&
-      user.nip
-    );
+    return !!(validatePassword(user.password) && user.nip);
   }
 
   const submit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setError(null);
     setLoading(true);
     e.preventDefault();
-    const resData = await registerAdmin(user);
+    const resData = await loginAdmin(user);
     if (resData.isSuccess) {
-      const userId = resData.data.data.id_admin;
-      store.setRegisterAdmin(user, userId);
       saveAdminToken(resData.data.data.id_session_admin);
       router.push('/admin/home');
     } else {

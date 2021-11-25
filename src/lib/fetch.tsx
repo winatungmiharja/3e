@@ -1,4 +1,10 @@
-import { RegisterAdminType, RegisterUserType } from './type';
+import {
+  LoginAdminType,
+  LoginUserType,
+  RegisterAdminType,
+  RegisterUserType,
+  TeflType,
+} from './type';
 
 export const registerUser = async (data: RegisterUserType) => {
   const url =
@@ -70,6 +76,103 @@ export const sessionAdmin = async (data: string) => {
     headers: {
       'Content-Type': 'application/json',
       Origin: 'http://localhost:3000/',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const loginUser = async (data: LoginUserType) => {
+  const url =
+    'https://cors-anywhere.herokuapp.com/https://toefl-3e.herokuapp.com/auth/users/login.php';
+  const newData = {
+    nrp_user: data.nrp,
+    password_user: data.password,
+  };
+  const res = await fetch(url, {
+    body: JSON.stringify(newData),
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const loginAdmin = async (data: LoginAdminType) => {
+  const url =
+    'https://cors-anywhere.herokuapp.com/https://toefl-3e.herokuapp.com/auth/admin/login.php';
+  const newData = {
+    nrp_user: data.nip,
+    password_user: data.password,
+  };
+  const res = await fetch(url, {
+    body: JSON.stringify(newData),
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const postTeflData = async (data: TeflType, id: string) => {
+  const url =
+    'https://cors-anywhere.herokuapp.com/https://toefl-3e.herokuapp.com/tefl/inputTefl.php';
+  const newData = {
+    id_user: id,
+    ...data,
+  };
+  const res = await fetch(url, {
+    body: JSON.stringify(newData),
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const fetchAllTefl = async () => {
+  const url = 'https://toefl-3e.herokuapp.com/tefl/getTefl.php';
+
+  const res = await fetch(url, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const fetchAllUser = async () => {
+  const url = 'https://toefl-3e.herokuapp.com/users/getDataUser.php';
+
+  const res = await fetch(url, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const resData = await res.json();
+  return resData;
+};
+
+export const fetchUserHistory = async (id: string) => {
+  const url =
+    'https://cors-anywhere.herokuapp.com/https://toefl-3e.herokuapp.com/tefl/getTefl.php';
+  const newData = {
+    id_user: id,
+  };
+  const res = await fetch(url, {
+    body: JSON.stringify(newData),
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
     },
   });
   const resData = await res.json();

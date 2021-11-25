@@ -19,6 +19,9 @@ module.exports = {
       outline: ['focus'],
     },
     extend: {
+      scale: {
+        '-1': '-1',
+      },
       backgroundImage: {
         1: "url('/images/bg_01.png')",
         2: "url('/images/bg_02.png')",

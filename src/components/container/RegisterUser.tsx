@@ -12,7 +12,6 @@ import {
   validatePassword,
 } from '@/lib/validation';
 
-import useUserAuth from '@/store/authUser';
 import { saveUserToken } from '@/store/localSession';
 
 import Button from '../button/Button';
@@ -20,7 +19,6 @@ import Input from '../input/Input';
 import InputPassword from '../input/InputPassword';
 
 export default function RegisterUser() {
-  const store = useUserAuth();
   const router = useRouter();
   const [error, setError] = React.useState<null | string>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -51,8 +49,6 @@ export default function RegisterUser() {
     e.preventDefault();
     const resData = await registerUser(user);
     if (resData.isSuccess) {
-      const userId = resData.data.data.id_user;
-      store.setRegisterUser(user, userId);
       saveUserToken(resData.data.data.id_session_user);
       router.push('/user/home');
     } else {

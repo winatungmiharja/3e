@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import * as React from 'react';
 
@@ -44,18 +45,21 @@ export default function RequireAuth({
     }
   };
 
-  const checkAuthentication = async (local: string) => {
-    const isAdmin = await checkAdminSession(JSON.parse(local));
-    const isUser = await checkUserSession(JSON.parse(local));
+  const checkAuthentication = async (local: string | null) => {
+    if (local === null) redirectToLogin();
+    else {
+      const isAdmin = await checkAdminSession(JSON.parse(local));
+      const isUser = await checkUserSession(JSON.parse(local));
 
-    if (path.includes('/admin')) {
-      isAdmin ? setPreload(false) : redirectToLogin();
-    } else if (path.includes('/user')) {
-      isUser ? setPreload(false) : redirectToLogin();
-    } else {
-      if (isAdmin) router.push('/admin/home');
-      else if (isUser) router.push('/user/home');
-      else setPreload(false);
+      if (path.includes('/admin')) {
+        isAdmin ? setPreload(false) : redirectToLogin();
+      } else if (path.includes('/user')) {
+        isUser ? setPreload(false) : redirectToLogin();
+      } else {
+        if (isAdmin) router.push('/admin/home');
+        else if (isUser) router.push('/user/home');
+        else setPreload(false);
+      }
     }
   };
 
@@ -65,13 +69,28 @@ export default function RequireAuth({
 
   React.useEffect(() => {
     const saved = localStorage.getItem('user_token');
-    if (saved === null) {
-      redirectToLogin();
+
+    if (
+      saved === null &&
+      !(path.includes('/admin') || path.includes('/user'))
+    ) {
+      setPreload(false);
     } else {
       checkAuthentication(saved);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <>{preload ? <p>LOADING</p> : <div>{children}</div>}</>;
+  return (
+    <>
+      {preload ? (
+        <div className='flex flex-col items-center justify-center w-full h-screen'>
+          <img src='/images/loading.gif' className='w-16' alt='loading' />
+          <h1>Loading ...</h1>
+        </div>
+      ) : (
+        <div>{children}</div>
+      )}
+    </>
+  );
 }

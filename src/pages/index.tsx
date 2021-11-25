@@ -10,7 +10,7 @@ import Seo from '@/components/Seo';
 
 export default function HomePage() {
   return (
-    <LandingLayout>
+    <LandingLayout isRegister={true} isLogin={true}>
       <Seo />
       <main>
         <CoverSection />
