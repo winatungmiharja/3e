@@ -104,8 +104,8 @@ export const loginAdmin = async (data: LoginAdminType) => {
   const url =
     'https://cors-anywhere.herokuapp.com/https://toefl-3e.herokuapp.com/auth/admin/login.php';
   const newData = {
-    nrp_user: data.nip,
-    password_user: data.password,
+    nip_admin: data.nip,
+    password_admin: data.password,
   };
   const res = await fetch(url, {
     body: JSON.stringify(newData),
