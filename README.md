@@ -1,5 +1,7 @@
 # English Equality for Everyone⭐
->This is a freelance project I worked on
+>TOEFL checking web application
+
+This is a freelance project I worked on
 
 >3E atau English Equality for Everyone adalah sebuah project dari kelompok 3 yang memanfaatkan sebaran data nilai TEFL mahasiswa ITS untuk meningkatkan kemampuan bahasa inggris di masa yang akan datang
 
